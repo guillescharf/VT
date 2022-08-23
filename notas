@@ -1,0 +1,30 @@
+PDO::exec() devuelve el número de filas modificadas o borradas por la sentencia 
+    SQL ejecutada. Si no hay filas afectadas, PDO::exec() devuelve 0.
+
+
+PDO::lastInsertId — Devuelve el ID de la última fila o secuencia insertada
+
+
+public PDO::prepare(string $statement, array $driver_options = array()): PDOStatement
+
+public PDOStatement::execute(array $input_parameters = ?): bool
+
+<?php
+/* Ejecuta una sentencia preparada pasando un array de valores */
+$sql = 'SELECT name, colour, calories
+    FROM fruit
+    WHERE calories < :calories AND colour = :colour';
+$sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+$sth->execute(array(':calories' => 150, ':colour' => 'red'));
+$red = $sth->fetchAll();
+$sth->execute(array(':calories' => 175, ':colour' => 'yellow'));
+$yellow = $sth->fetchAll();
+?>
+
+
+
+PDO::query — Ejecuta una sentencia SQL, devolviendo un conjunto de resultados como un objeto PDOStatement
+
+
+ACA QUEDE
+https://www.php.net/manual/es/class.pdostatement.php
