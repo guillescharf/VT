@@ -1,7 +1,7 @@
 <?php
 
-    class perfil_usuario{
-        private $nombre_clase = 'perfil_usuario';
+    class categoria{
+        private $nombre_clase = 'categoria';
         private $properties = array('description', 'state');
         private $id;
         private $description;

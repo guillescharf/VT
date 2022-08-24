@@ -10,7 +10,7 @@
 
             parent::__construct();
 
-            $stmt = $this->db_connection->prepare($sql);            
+            $stmt = $this->db_connection->prepare($sql);   
 
             if($stmt->execute($params)){
 

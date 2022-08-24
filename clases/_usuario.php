@@ -1,10 +1,14 @@
 <?php
 
-    class perfil_usuario{
-        private $nombre_clase = 'perfil_usuario';
-        private $properties = array('description', 'state');
+    class usuario{
+        private $nombre_clase =  'usuario';
+        private $properties = array('FirstName', 'LastName', 'Email', 'Telephone', 'perfilUsuarioId', 'state');
         private $id;
-        private $description;
+        private $FirstName;
+        private $LastName;
+        private $Email;
+        private $Telephone;
+        private $perfilUsuarioId;
         private $state;
         private $sql;
 
@@ -12,7 +16,15 @@
 
             $this->id = 0;
 
-            $this->description = '';
+            $this->FirstName = '';
+
+            $this->LastName = '';
+
+            $this->Email = '';
+
+            $this->Telephone = '';
+
+            $this->perfilUsuarioId = 0;
 
             $this->state = ESTADO_ACTIVO;
 
@@ -32,13 +44,14 @@
 
         public function __get($property){
 
+
             if(property_exists($this, $property)){
 
                 return $this->$property;
 
             }
 
-        }        
+        }           
 
         private function makeParamsArray(){
 

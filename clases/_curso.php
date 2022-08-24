@@ -1,14 +1,20 @@
 <?php
 
-    class usuario{
-        private $nombre_clase =  'usuarios';
-        private $properties = array('FirstName', 'LastName', 'Email', 'Telephone', 'perfilUsuarioId', 'state');
+    class curso{
+        private $nombre_clase = 'curso';
+        private $properties = array('descripcion','startDate', 'endDate', 'categoriaId', 'nombre', 
+                                    'imagen', 'archivo', 'lugar', 'inscripcionAbierta', 'cupos', 'state');
         private $id;
-        private $FirstName;
-        private $LastName;
-        private $Email;
-        private $Telephone;
-        private $perfilUsuarioId;
+        private $descripcion;
+        private $nombre;
+        private $startDate;
+        private $endDate;
+        private $categoriaId;
+        private $imagen;
+        private $archivo;
+        private $lugar;
+        private $inscripcionAbierta;
+        private $cupos;
         private $state;
         private $sql;
 
@@ -16,15 +22,25 @@
 
             $this->id = 0;
 
-            $this->FirstName = '';
+            $this->description = '';
 
-            $this->LastName = '';
+            $this->startDate =  date('Ymd');
 
-            $this->Email = '';
+            $this->endDate = date('Ymd');
 
-            $this->Telephone = '';
+            $this->categoriaId = 0;
 
-            $this->perfilUsuarioId = 0;
+            $this->nombre = '';
+
+            $this->imagen = '';
+
+            $this->archivo = '';
+
+            $this->lugar = '';
+
+            $this->inscripcionAbierta = false;
+
+            $this->cupos = 0;
 
             $this->state = ESTADO_ACTIVO;
 
@@ -44,14 +60,13 @@
 
         public function __get($property){
 
-
             if(property_exists($this, $property)){
 
                 return $this->$property;
 
             }
 
-        }           
+        }        
 
         private function makeParamsArray(){
 
@@ -87,7 +102,7 @@
 
             $this->sql = "INSERT INTO $this->nombre_clase ($ColsString) VALUES ($ValuesString)";
 
-            $params = $this->makeParamsArray;
+            $params = $this->makeParamsArray();
 
             $query = new query($this->sql, $params);
 
@@ -116,7 +131,7 @@
 
             $this->sql = "UPDATE $this->nombre_clase SET $ValuesString WHERE id = $this->id";
             
-            $params = $this->makeParamsArray;
+            $params = $this->makeParamsArray();
 
             $query = new query($this->sql, $params);
 

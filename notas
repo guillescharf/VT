@@ -28,3 +28,9 @@ PDO::query — Ejecuta una sentencia SQL, devolviendo un conjunto de resultados 
 
 ACA QUEDE
 https://www.php.net/manual/es/class.pdostatement.php
+
+CREATE TABLE `perfil_usuario` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `state` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
